@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Questions – Answers | Justly Usability Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #111827;
+      background: #F5F6F8;
+      padding-bottom: 80px;
+    }
+
+    /* ── Page Header ── */
+    .page-header {
+      background: linear-gradient(150deg, #1e1b4b 0%, #3730a3 60%, #4f46e5 100%);
+      color: white;
+      padding: 52px 0 44px;
+      margin-bottom: 44px;
+    }
+
+    .header-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+    }
+
+    .page-header h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .page-header .subtitle {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.65;
+      max-width: 620px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .meta-item {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .meta-item strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    /* ── Page Layout: Sidebar + Content ── */
+    .page-layout {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 168px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 32px;
+    }
+
+    .sidebar-heading {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      margin-bottom: 2px;
+      transition: background 0.15s;
+    }
+
+    .nav-item:hover {
+      background: #ECEEF1;
+    }
+
+    .nav-item.active {
+      background: #EEF2FF;
+    }
+
+    .nav-rq {
+      display: block;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      margin-bottom: 1px;
+    }
+
+    .nav-item.active .nav-rq {
+      color: #4F46E5;
+    }
+
+    .nav-topic {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #374151;
+      line-height: 1.3;
+    }
+
+    .nav-item.active .nav-topic {
+      color: #3730A3;
+    }
+
+    .nav-divider {
+      border: none;
+      border-top: 1px solid #E5E7EB;
+      margin: 10px 0;
+    }
+
+    .nav-item-plain .nav-topic {
+      font-weight: 500;
+      color: #6B7280;
+      font-size: 12px;
+    }
+
+    .nav-item-plain.active .nav-topic {
+      color: #3730A3;
+      font-weight: 600;
+    }
+
+    /* ── Main Content ── */
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ── Executive Summary ── */
+    .exec-summary {
+      margin-bottom: 36px;
+    }
+
+    .exec-summary-heading {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      margin-bottom: 12px;
+    }
+
+    .exec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .exec-card {
+      background: white;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+
+    .exec-card:hover {
+      border-color: #A5B4FC;
+      box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+    }
+
+    .exec-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .exec-rq {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #4F46E5;
+    }
+
+    .exec-topic {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 5px;
+    }
+
+    .exec-finding {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.55;
+    }
+
+    .priority-pill {
+      font-size: 10px;
+      font-weight: 600;
+      background: #FEF3C7;
+      color: #92400E;
+      padding: 2px 7px;
+      border-radius: 20px;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      padding: 12px 16px;
+      background: white;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: #4B5563;
+    }
+
+    .legend-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 60px;
+      scroll-margin-top: 32px;
+    }
+
+    .section + .section {
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+    }
+
+    /* ── Section Header ── */
+    .section-header {
+      margin-bottom: 20px;
+    }
+
+    .section-header-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .rq-badge {
+      flex-shrink: 0;
+      background: #4F46E5;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+
+    .topic-label {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      letter-spacing: -0.3px;
+    }
+
+    .section-question {
+      font-size: 13px;
+      font-weight: 400;
+      color: #6B7280;
+      line-height: 1.55;
+      padding-left: 2px;
+    }
+
+    .meta-type {
+      display: inline;
+      font-size: 11.5px;
+      color: #9CA3AF;
+      margin-left: 4px;
+    }
+
+    /* ── Answer Summary Card ── */
+    .answer-card {
+      background: white;
+      border: 1px solid #E5E7EB;
+      border-left: 4px solid #4F46E5;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+
+    .card-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4F46E5;
+      margin-bottom: 8px;
+    }
+
+    .answer-card p {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    /* ── Category Label ── */
+    .category-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      margin: 26px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #F3F4F6;
+    }
+
+    /* ── Two-column findings layout ── */
+    .findings-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .findings-col .category-label {
+      margin-top: 0;
+    }
+
+    /* ── Finding Cards ── */
+    .finding {
+      background: white;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-bottom: 8px;
+    }
+
+    .finding-neg {
+      background: #FFF5F5;
+      border-color: #FECACA;
+    }
+
+    .finding-pos {
+      background: #F0FDF4;
+      border-color: #BBF7D0;
+    }
+
+    .finding-wish {
+      background: #F5F3FF;
+      border-color: #DDD6FE;
+    }
+
+    .badge { display: none; }
+
+    .finding-content { width: 100%; }
+
+    .finding-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .finding-text {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.65;
+    }
+
+    .count-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #EEF2FF;
+      color: #4338CA;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    /* ── Quotes ── */
+    .quotes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 22px 0;
+    }
+
+    .quote {
+      background: white;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 14px 18px 14px 46px;
+      position: relative;
+    }
+
+    .quote::before {
+      content: '\201C';
+      position: absolute;
+      left: 16px;
+      top: 8px;
+      font-size: 36px;
+      color: #D1D5DB;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .quote-text {
+      font-size: 13px;
+      font-style: italic;
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    .quote-author {
+      font-style: normal;
+      font-size: 11px;
+      font-weight: 600;
+      color: #9CA3AF;
+      margin-top: 5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── Insight Box ── */
+    .insight {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 22px;
+    }
+
+    .insight-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #92400E;
+      margin-bottom: 7px;
+    }
+
+    .insight p {
+      font-size: 13px;
+      color: #78350F;
+      line-height: 1.7;
+    }
+
+    /* ── Tables ── */
+    .table-wrap {
+      border-radius: 10px;
+      border: 1px solid #E5E7EB;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: white;
+    }
+
+    .data-table th {
+      background: #F9FAFB;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6B7280;
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      color: #374151;
+      border-bottom: 1px solid #F3F4F6;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: #FAFAFA; }
+    .data-table td:first-child { font-weight: 500; color: #111827; }
+
+    .label-neg { color: #991B1B; font-weight: 500; }
+    .label-pos { color: #166534; font-weight: 500; }
+    .label-mix { color: #92400E; font-weight: 500; }
+
+    /* ── Notes ── */
+    .note {
+      font-size: 11.5px;
+      color: #9CA3AF;
+      margin-top: 7px;
+      padding-left: 4px;
+    }
+
+    .finding-list {
+      margin: 7px 0 0;
+      padding-left: 16px;
+    }
+
+    .finding-list li {
+      font-size: 13px;
+      color: #4B5563;
+      margin-bottom: 3px;
+      line-height: 1.6;
+    }
+
+    /* ── Summary Section ── */
+    .summary-section {
+      margin-top: 60px;
+      padding-top: 44px;
+      border-top: 2px solid #E5E7EB;
+      scroll-margin-top: 32px;
+    }
+
+    .summary-section h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    .page-footer {
+      text-align: center;
+      font-size: 11.5px;
+      color: #9CA3AF;
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid #E5E7EB;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="page-header">
+  <div class="header-inner">
+    <p class="eyebrow">UX Research &middot; Justly Usability Study</p>
+    <h1>Research Questions &ndash; Answers</h1>
+    <p class="subtitle">Moderated usability test of the app "Justly" (AI-powered journaling / self-care). 5 individual sessions (T1–T5), think-aloud method, followed by a brief interview.</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Participants</strong> T1, T2, T3, T4, T5</span>
+      <span class="meta-item"><strong>Date</strong> 14.04.2026</span>
+      <span class="meta-item"><strong>Author</strong> Martina Prais</span>
+    </div>
+  </div>
+</header>
+
+<div class="page-layout">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <nav class="sidebar">
+    <div class="sidebar-heading">Research Questions</div>
+
+    <a href="#rq1" class="nav-item active">
+      <span class="nav-rq">RQ 1</span>
+      <span class="nav-topic">Chatbot Style</span>
+    </a>
+    <a href="#rq2" class="nav-item">
+      <span class="nav-rq">RQ 2</span>
+      <span class="nav-topic">Post-Chat Summary</span>
+    </a>
+    <a href="#rq3" class="nav-item">
+      <span class="nav-rq">RQ 3</span>
+      <span class="nav-topic">Features &amp; Navigation</span>
+    </a>
+    <a href="#rq4" class="nav-item">
+      <span class="nav-rq">RQ 4</span>
+      <span class="nav-topic">Willingness to Pay</span>
+    </a>
+
+    <hr class="nav-divider">
+
+    <a href="#summary" class="nav-item nav-item-plain">
+      <span class="nav-topic">Overall Conclusions</span>
+    </a>
+  </nav>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="main-content">
+
+    <!-- Executive Summary -->
+    <div class="exec-summary">
+      <div class="exec-summary-heading">Key Findings at a Glance</div>
+      <div class="exec-grid">
+        <a href="#rq1" class="exec-card">
+          <div class="exec-card-top">
+            <span class="exec-rq">RQ 1</span>
+            <span class="priority-pill">5 / 5</span>
+          </div>
+          <div class="exec-topic">Chatbot Style</div>
+          <div class="exec-finding">Too empathetic, not substantive enough. Users want concrete questions and a more matter-of-fact style.</div>
+        </a>
+        <a href="#rq2" class="exec-card">
+          <div class="exec-card-top">
+            <span class="exec-rq">RQ 2</span>
+            <span class="priority-pill">5 / 5</span>
+          </div>
+          <div class="exec-topic">Post-Chat Summary</div>
+          <div class="exec-finding">Emotion pie chart rejected by all. Challenges as bullet points work well.</div>
+        </a>
+        <a href="#rq3" class="exec-card">
+          <div class="exec-card-top">
+            <span class="exec-rq">RQ 3</span>
+            <span class="priority-pill">5 / 5</span>
+          </div>
+          <div class="exec-topic">Features &amp; Navigation</div>
+          <div class="exec-finding">Routines, journals, and open journal are valued. Navigation and paywalls block access.</div>
+        </a>
+        <a href="#rq4" class="exec-card">
+          <div class="exec-card-top">
+            <span class="exec-rq">RQ 4</span>
+            <span class="priority-pill">4 / 5</span>
+          </div>
+          <div class="exec-topic">Willingness to Pay</div>
+          <div class="exec-finding">4 / 5 unwilling to pay. Freemium experience must improve before conversion is possible.</div>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- ═══ RQ 1 ═══ -->
+    <section class="section" id="rq1">
+      <div class="section-header">
+        <div class="section-header-top">
+          <span class="rq-badge">RQ 1</span>
+          <span class="topic-label">Chatbot Style</span>
+        </div>
+        <p class="section-question">
+          Which elements of the chatbot's communication style (e.g. asking questions, suggesting solutions, showing understanding) do users experience as helpful – and which as insufficient?
+          <span class="meta-type">qualitative</span>
+        </p>
+      </div>
+
+      <div class="answer-card">
+        <div class="card-eyebrow">Short Answer</div>
+        <p>Justly's current chatbot style is experienced as insufficient by <strong>5 out of 5</strong> participants. Empathy and understanding alone do not create perceived value. No aspect of the current style was experienced as genuinely helpful – participants could only describe what they would wish for instead.</p>
+      </div>
+
+      <div class="findings-two-col">
+        <div class="findings-col">
+          <div class="category-label">What Was Experienced as Insufficient</div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Too much reflexive empathy, too little substance <span class="count-pill">5 / 5</span></div>
+              <div class="finding-text">The AI repeats, validates, and shows compassion – without offering concrete prompts for reflection or practical guidance. The tone feels forced and inauthentic: <em>"All soft and flattering – no real person talks like that"</em> (T2). Too many affirming responses without real content make the AI immediately recognisable as AI (T5). All 5 participants found this inauthentic or without value.</div>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">No change of perspective</div>
+              <div class="finding-text">The AI mirrors back what was said instead of introducing new viewpoints. T3: <em>"Fake conversation – nothing but empathy, no substance."</em></div>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">No memory within the session</div>
+              <div class="finding-text">T1 experienced the AI forgetting things said moments earlier and constructing negative patterns that did not apply to him.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="findings-col">
+          <div class="category-label">What Users Would Want Instead</div>
+
+          <div class="finding finding-wish">
+            <span class="badge badge-wish">wish</span>
+            <div class="finding-content">
+              <div class="finding-title">Matter-of-fact, neutral counterpart</div>
+              <div class="finding-text">T3 would see the AI as a "factual information source" – someone who does not simulate a relationship but instead provides orientation and context.</div>
+            </div>
+          </div>
+
+          <div class="finding finding-wish">
+            <span class="badge badge-wish">wish</span>
+            <div class="finding-content">
+              <div class="finding-title">Concrete questions and prompts for reflection</div>
+              <div class="finding-text">Several participants wished the AI would ask more follow-up questions, draw connections, and broaden their perspective.</div>
+            </div>
+          </div>
+
+          <div class="finding finding-wish">
+            <span class="badge badge-wish">wish</span>
+            <div class="finding-content">
+              <div class="finding-title">Context-dependent empathy</div>
+              <div class="finding-text">T5: The empathetic tone is appropriate on a hard day – but overdone for everyday topics. A more differentiated style would be more convincing.</div>
+            </div>
+          </div>
+
+          <div class="finding finding-wish">
+            <span class="badge badge-wish">wish</span>
+            <div class="finding-content">
+              <div class="finding-title">Personas concept</div>
+              <div class="finding-text">The idea of being able to choose the AI's conversational style (different personas) was generally welcomed by T5 and T4.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <div class="quote">
+          <div class="quote-text">"Ideally, I'd see an AI like this more as a factual information source, not as a relationship object. Someone who simply has no experience with this – it carries no weight."</div>
+          <div class="quote-author">T3</div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">"It tries to say things very empathetically, even though it's not appropriate. You'd have to differentiate – when you're having a hard time, versus when it's actually just a normal day."</div>
+          <div class="quote-author">T5</div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">"The AI is all soft and flattering. No real person talks like that."</div>
+          <div class="quote-author">T2</div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Conclusion</div>
+        <p>The chatbot style should be adaptable depending on the severity of the situation and the user's personal needs. A differentiated conversational design that can distinguish between "difficult moment" and "ordinary day" – and that asks concrete questions rather than just validating – would significantly increase the perceived usefulness of the AI.</p>
+      </div>
+    </section>
+
+    <!-- ═══ RQ 2 ═══ -->
+    <section class="section" id="rq2">
+      <div class="section-header">
+        <div class="section-header-top">
+          <span class="rq-badge">RQ 2</span>
+          <span class="topic-label">Post-Chat Summary</span>
+        </div>
+        <p class="section-question">
+          Which elements of the automatically generated post-chat summary (e.g. emotions, challenges, next steps) do users find meaningful and helpful – and which do they not?
+          <span class="meta-type">qualitative</span>
+        </p>
+      </div>
+
+      <div class="answer-card">
+        <div class="card-eyebrow">Short Answer</div>
+        <p>The automatic emotion rating (pie chart) is rejected by <strong>5 out of 5</strong> participants. Challenges presented as bullet points are rated positively. The summary as a whole generates little motivation to revisit it.</p>
+      </div>
+
+      <div class="category-label">What Was Experienced as Not Helpful</div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">Automatic emotion rating (pie chart) <span class="count-pill">5 / 5</span></div>
+          <div class="finding-text">All participants rejected the automatically assigned overall mood. It felt arbitrary, opaque, and inaccurate.</div>
+          <ul class="finding-list">
+            <li>T1: generic value assignments that did not reflect his experience</li>
+            <li>T2: "Enthusiasm" rated too low; visualisation not intuitive</li>
+            <li>T3: overdramatic, cannot be adjusted – "not credible after a short conversation"</li>
+            <li>T4: would give herself 90% enthusiasm</li>
+            <li>T5: a 70% mood score after 10 messages feels arbitrary</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">Summary in someone else's words</div>
+          <div class="finding-text">T3 would not re-read the summary – <em>"because those aren't my words."</em></div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">No motivation to revisit <span class="count-pill">4 / 5</span></div>
+          <div class="finding-text">4 out of 5 participants would not reopen the summary.</div>
+        </div>
+      </div>
+
+      <div class="category-label">What Was Actually Experienced as Helpful</div>
+
+      <div class="finding finding-pos">
+        <span class="badge badge-pos">positive</span>
+        <div class="finding-content">
+          <div class="finding-title">Challenges as bullet points</div>
+          <div class="finding-text">T3 and T5 praised the clear at-a-glance format. Reframing problems as "challenges" was seen as potentially helpful.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-pos">
+        <span class="badge badge-pos">positive</span>
+        <div class="finding-content">
+          <div class="finding-title">Accurate content summary</div>
+          <div class="finding-text">T2 and T4 felt the AI had correctly captured the essence of their situation – this was perceived positively.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-pos">
+        <span class="badge badge-pos">positive</span>
+        <div class="finding-content">
+          <div class="finding-title">Long-term calendar / mood trend</div>
+          <div class="finding-text">T5 appreciated the monthly calendar with colour-coded days in the profile – <em>"That's great."</em> Tracking mood across multiple sessions would be more credible than a single-session score.</div>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <div class="quote">
+          <div class="quote-text">"I find that a bit overdramatic – especially because the app assigned it to me. And maybe I don't even feel that way."</div>
+          <div class="quote-author">T3</div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">"I have no idea where it gets that my overall mood is 70 – I find that strange after just 10 messages."</div>
+          <div class="quote-author">T5</div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Conclusion</div>
+        <p>The automatic emotion rating should be replaced by a user-controlled input: let users choose and name their own emotions. This gives them agency over how they are represented — and at the same time supports emotional competence, helping users become more aware of and better able to identify their own emotional states. Challenges as bullet points and an accurate content summary are strengths that should be retained, as long as the actual chat remains accessible.</p>
+      </div>
+    </section>
+
+    <!-- ═══ RQ 3 ═══ -->
+    <section class="section" id="rq3">
+      <div class="section-header">
+        <div class="section-header-top">
+          <span class="rq-badge">RQ 3</span>
+          <span class="topic-label">Features &amp; Navigation</span>
+        </div>
+        <p class="section-question">
+          Which features outside the chat (e.g. themed journals, pre-written prompts, weekly insights, goals) would users actually use – and which feel overwhelming or unnecessary?
+          <span class="meta-type">qualitative</span>
+        </p>
+      </div>
+
+      <div class="answer-card">
+        <div class="card-eyebrow">Short Answer</div>
+        <p>The app offers genuinely valuable features – routines, journal variety, the open journal, and the personas concept are well received. However, access to these features is significantly hindered by unclear navigation <strong>(5 / 5)</strong> and early paywalls <strong>(5 / 5)</strong>.</p>
+      </div>
+
+      <div class="category-label">Features That Would Actually Be Used</div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Mentioned by</th>
+              <th>Why Helpful</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Open Journal (without AI)</td>
+              <td>T1, T2</td>
+              <td>The freedom to choose between AI chat and free writing is explicitly valued; T2 would prefer the open journal over the AI chat</td>
+            </tr>
+            <tr>
+              <td>Routines (yoga, meditation, habits)</td>
+              <td>T2, T5</td>
+              <td>T2 was excited by the options; T5: "Routines are enormously important" – a clear use case</td>
+            </tr>
+            <tr>
+              <td>Themed Journals (variety)</td>
+              <td>T2, T5</td>
+              <td>Many topics resonate: self-confidence, decision clarity, travel, worries – broad relevance</td>
+            </tr>
+            <tr>
+              <td>Personas Concept (choose AI style)</td>
+              <td>T5, T4</td>
+              <td>The idea of choosing the AI's conversational style is understood and seen as meaningful</td>
+            </tr>
+            <tr>
+              <td>Calendar with marked days (profile)</td>
+              <td>T5, T3</td>
+              <td>Monthly overview of emotional mood; visual trend over time is more credible than a single value; T3 would prefer a neutral marking option to avoid seeing too many sad-face days</td>
+            </tr>
+            <tr>
+              <td>Challenges as Bullet Points</td>
+              <td>T3, T5</td>
+              <td>Clear at-a-glance format; reframing as a "challenge" can be motivating</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="category-label">Features That Feel Overwhelming or Unconvincing</div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">Explore section entirely subscription-only</div>
+          <div class="finding-text">T1 discovered that the entire Explore section is behind a paywall. This makes exploring the app frustrating before the core value can even be experienced.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">Hidden paywall in the journal list</div>
+          <div class="finding-text">T3: The journal list appears free – only the final tap reveals the payment screen. The feeling of being misled reduces willingness to engage with the app.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">Icons without labels in navigation <span class="count-pill">5 / 5</span></div>
+          <div class="finding-text">All participants struggled with unclear icons. Features were overlooked or misidentified because context was missing (e.g. star icon = Insights, but mistaken for AI chat by T5; dream journal icon unclear to T4).</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">"Continue" button in the chat</div>
+          <div class="finding-text">T3: The button should say "Send" – the current label makes it unclear what it does.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">Calendar navigated to wrong day</div>
+          <div class="finding-text">T1 spent five minutes confused because it was not clear that he had navigated to a future day where no session could be started (no visual indicator).</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">No visible value after the first session <span class="count-pill">4 / 5</span></div>
+          <div class="finding-text">4 out of 5 participants saw no reason to reopen the app after completing their session. The home screen appeared empty after entries were made.</div>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <div class="quote">
+          <div class="quote-text">"It's just one long list. The payment page only opens when you tap 'Use'. It wasn't clear at all beforehand that these were all premium items."</div>
+          <div class="quote-author">T3</div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">"I had to tap on it first to understand what it was. With the journals, it really wasn't clear when I tapped it – I just thought there was nothing there."</div>
+          <div class="quote-author">T2</div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">"What do I actually get from having entered my goals for today? On the home screen I still see nothing."</div>
+          <div class="quote-author">T1</div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Conclusion</div>
+        <p>The well-received features – routines, journal variety, open journal, personas – could be positioned as stronger entry points. Navigation needs short text labels below the icons. Premium content must be clearly marked as such upfront, and the free experience must already deliver genuine value. Session-start buttons should be greyed out when the calendar is showing a past or future day. Rename the "Continue" button in the chat to "Send" to better communicate what it does.</p>
+      </div>
+    </section>
+
+    <!-- ═══ RQ 4 ═══ -->
+    <section class="section" id="rq4">
+      <div class="section-header">
+        <div class="section-header-top">
+          <span class="rq-badge">RQ 4</span>
+          <span class="topic-label">Willingness to Pay</span>
+        </div>
+        <p class="section-question">
+          Would users regularly use the app or pay for it?
+          <span class="meta-type">quantitative</span>
+          &nbsp;And why / why not?
+          <span class="meta-type">qualitative</span>
+        </p>
+      </div>
+
+      <div class="answer-card">
+        <div class="card-eyebrow">Short Answer</div>
+        <p><strong>4 out of 5</strong> participants would neither use Justly regularly nor pay for it. Only T5 showed a basic willingness to pay and is the only participant who expressed interest in using the app regularly.</p>
+      </div>
+
+      <div class="category-label">Quantitative Overview</div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Participant</th>
+              <th>Use regularly (1–5)</th>
+              <th>NPS (0–10)</th>
+              <th>Willingness to pay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T1</td>
+              <td>1</td>
+              <td>0</td>
+              <td class="label-neg">No – "They'd have to pay me."</td>
+            </tr>
+            <tr>
+              <td>T2</td>
+              <td>1</td>
+              <td>1</td>
+              <td class="label-neg">No – "I would never do that. Never."</td>
+            </tr>
+            <tr>
+              <td>T3</td>
+              <td>1</td>
+              <td>0–1</td>
+              <td class="label-neg">No</td>
+            </tr>
+            <tr>
+              <td>T4</td>
+              <td>1</td>
+              <td>2</td>
+              <td class="label-neg">No</td>
+            </tr>
+            <tr>
+              <td>T5</td>
+              <td>4</td>
+              <td>8</td>
+              <td class="label-mix">Possibly – for a limited period; €8/week too high for long-term use</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="category-label">Why Is Willingness to Pay Absent?</div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">No perceived value</div>
+          <div class="finding-text">Those who have not experienced the app's benefit – because the free experience is too limited or the first session lacks real depth – find no price justifiable.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">Paywall too early and too hidden</div>
+          <div class="finding-text">Users became frustrated before they could even discover the app's core value. This increases distrust toward the pricing model.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">AI not accepted as a substitute for real support <span class="count-pill">5 / 5</span></div>
+          <div class="finding-text">All 5 participants do not see an AI app as a replacement for human connection or therapy – which reduces the perceived need to pay for it. T4 and T3 expressed active concerns that the app could make people lonelier.</div>
+        </div>
+      </div>
+
+      <div class="finding finding-neg">
+        <span class="badge badge-neg">negative</span>
+        <div class="finding-content">
+          <div class="finding-title">No motivation to return after the first session</div>
+          <div class="finding-text">If the app creates no incentive to come back after one session, there is no felt need for a subscription.</div>
+        </div>
+      </div>
+
+      <div class="category-label">Why Did T5 Show Willingness to Pay?</div>
+
+      <div class="finding finding-pos">
+        <span class="badge badge-pos">positive</span>
+        <div class="finding-content">
+          <div class="finding-title">Reframing as genuine perceived value</div>
+          <div class="finding-text">The post-chat summary reframed T5's everyday stress as a "challenge she was mastering" rather than a burden. She experienced this shift in perspective as genuine value – and it was enough to make her consider paying for the app, at least short-term.</div>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <div class="quote">
+          <div class="quote-text">"I would never do that. Never."</div>
+          <div class="quote-author">T2</div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">"They'd have to pay me."</div>
+          <div class="quote-author">T1</div>
+        </div>
+        <div class="quote">
+          <div class="quote-text">"It can be a great support tool for someone who's already in therapy, as an add-on. You just have to see it as a tool."</div>
+          <div class="quote-author">T5</div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Conclusion</div>
+        <p>The app needs to create value before it asks for it. A more compelling freemium experience (longer trial period, deeper first session without a message limit) would likely improve conversion. T5 demonstrates that even a well-designed reframing in the summary – stress as a "challenge" rather than a problem – can create genuine perceived value. This is a scalable lever: the benefit does not have to depend on an emotionally exceptional moment; it can emerge in everyday life when the app shifts the user's perspective on their own situation.</p>
+      </div>
+    </section>
+
+    <!-- ═══ SUMMARY ═══ -->
+    <section class="summary-section" id="summary">
+      <h2>Overall Conclusions</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Research Question</th>
+              <th>Key Finding</th>
+              <th>Development Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>RQ 1</strong> – Chatbot Style</td>
+              <td>Too empathetic, too little substantive value; a more matter-of-fact, question-driven style is desired</td>
+              <td><strong>High</strong> – 5 / 5</td>
+            </tr>
+            <tr>
+              <td><strong>RQ 2</strong> – Post-Chat Summary</td>
+              <td>Emotion rating (pie chart) not credible; bullet-point challenges and accurate content summary are positives</td>
+              <td><strong>High</strong> – 5 / 5</td>
+            </tr>
+            <tr>
+              <td><strong>RQ 3</strong> – Features &amp; Navigation</td>
+              <td>Routines, journal variety, and open journal are convincing; navigation and paywalls block access</td>
+              <td><strong>High</strong> – 5 / 5</td>
+            </tr>
+            <tr>
+              <td><strong>RQ 4</strong> – Willingness to Pay</td>
+              <td>4 / 5 unwilling to pay; freemium experience must improve before conversion is possible</td>
+              <td><strong>High</strong> – 4 / 5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="page-footer">Based on: Results Overview – All Participants &middot; Justly Usability Study, March 2026</p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section[id], .summary-section[id]');
+  const navItems = document.querySelectorAll('.nav-item[href^="#"]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(item => item.classList.remove('active'));
+        const active = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
