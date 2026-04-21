@@ -15,7 +15,7 @@
       font-size: 14px;
       line-height: 1.7;
       color: #111827;
-      background: #F5F6F8;
+      background: #faf8ff;
       padding-bottom: 80px;
     }
 
@@ -195,18 +195,18 @@
 
     .exec-card {
       background: white;
-      border: 1px solid #E5E7EB;
+      border: none;
       border-radius: 10px;
       padding: 18px 20px;
       text-decoration: none;
       color: inherit;
       display: block;
-      transition: box-shadow 0.15s, border-color 0.15s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+      transition: box-shadow 0.15s;
     }
 
     .exec-card:hover {
-      border-color: #A5B4FC;
-      box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+      box-shadow: 0 2px 8px rgba(79,70,229,0.10);
     }
 
     .exec-card-top {
@@ -291,21 +291,27 @@
 
     .section-header-top {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: baseline;
+      gap: 6px;
       margin-bottom: 6px;
+      padding-left: 14px;
+      border-left: 4px solid #4F46E5;
     }
 
     .rq-badge {
       flex-shrink: 0;
-      background: #4F46E5;
-      color: white;
-      font-size: 10px;
+      background: none;
+      color: #4F46E5;
+      font-size: 20px;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 4px 10px;
-      border-radius: 5px;
+      letter-spacing: -0.3px;
+      padding: 0;
+      border-radius: 0;
       white-space: nowrap;
+    }
+
+    .rq-badge::after {
+      content: ':';
     }
 
     .topic-label {
@@ -333,11 +339,11 @@
     /* ── Answer Summary Card ── */
     .answer-card {
       background: white;
-      border: 1px solid #E5E7EB;
-      border-left: 4px solid #4F46E5;
+      border: none;
       border-radius: 10px;
       padding: 18px 22px;
       margin-bottom: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
     }
 
     .card-eyebrow {
@@ -382,30 +388,120 @@
     /* ── Finding Cards ── */
     .finding {
       background: white;
-      border: 1px solid #E5E7EB;
-      border-radius: 10px;
+      border: none;
+      border-radius: 12px;
       padding: 15px 18px;
       margin-bottom: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
 
-    .finding-neg {
-      background: #FFF5F5;
-      border-color: #FECACA;
-    }
-
-    .finding-pos {
-      background: #F0FDF4;
-      border-color: #BBF7D0;
-    }
-
-    .finding-wish {
-      background: #F5F3FF;
-      border-color: #DDD6FE;
-    }
+    .finding-neg { background: white; border-top: 3px solid #EF4444; }
+    .finding-pos { background: white; border-top: 3px solid #22C55E; }
+    .finding-wish { background: white; border-top: 3px solid #8B5CF6; }
 
     .badge { display: none; }
 
     .finding-content { width: 100%; }
+    .finding-group .finding-content { width: auto; flex: 1; min-width: 0; }
+
+    /* ── Finding Groups (colored containers) ── */
+    .finding-group {
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    .section > .finding-group { margin-top: 16px; }
+    .section .table-wrap + .finding-group { margin-top: 32px; }
+
+    .table-wrap + .findings-two-col { margin-top: 28px; }
+
+    .finding-group-neg  { background: #FECACA; }
+    .finding-group-pos  { background: #BBF7D0; }
+    .finding-group-wish { background: #DDD6FE; }
+
+    /* Group header label */
+    .finding-group .category-label {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .finding-group .category-label::before {
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1;
+      color: inherit;
+    }
+
+    .finding-group-neg .category-label  { color: #7F1D1D; }
+    .finding-group-pos .category-label  { color: #14532D; }
+    .finding-group-wish .category-label { color: #3B0764; }
+
+    .finding-group-neg  .category-label::before { content: '▼'; }
+    .finding-group-pos  .category-label::before { content: '▲'; }
+    .finding-group-wish .category-label::before { content: '★'; }
+
+    /* Individual finding items inside groups — flat list, no sub-card */
+    .finding-group .finding {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: transparent;
+      box-shadow: none;
+      border-top: none;
+      border-radius: 0;
+      padding: 8px 0;
+      margin-bottom: 0;
+    }
+
+    .finding-group .finding + .finding {
+      border-top: 1px solid rgba(0,0,0,0.13);
+    }
+
+    /* Badge re-shown as icon circle */
+    .finding-group .badge {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 0;
+      flex-shrink: 0;
+      margin-top: 2px;
+      padding: 0;
+    }
+
+    .finding-group .badge::after {
+      font-size: 11px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .finding-group-neg .badge                    { background: #991B1B; }
+    .finding-group-neg .badge::after             { content: '✕'; }
+    .finding-group-pos .badge                    { background: #166534; }
+    .finding-group-pos .badge::after             { content: '✓'; }
+    .finding-group-wish .badge                   { background: #5B21B6; }
+    .finding-group-wish .badge::after            { content: '✓'; }
+
+    /* Text colors inside groups */
+    .finding-group-neg .finding-title            { color: #7F1D1D; font-weight: 700; }
+    .finding-group-neg .finding-text             { color: #991B1B; font-size: 12.5px; }
+    .finding-group-pos .finding-title            { color: #14532D; font-weight: 700; }
+    .finding-group-pos .finding-text             { color: #166534; font-size: 12.5px; }
+    .finding-group-wish .finding-title           { color: #3B0764; font-weight: 700; }
+    .finding-group-wish .finding-text            { color: #5B21B6; font-size: 12.5px; }
+
+    /* Count pills adapt to group color */
+    .finding-group .count-pill {
+      background: rgba(0,0,0,0.12);
+      color: inherit;
+    }
 
     .finding-title {
       font-size: 13.5px;
@@ -438,18 +534,22 @@
     /* ── Quotes ── */
     .quotes {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px;
       margin: 22px 0;
     }
 
     .quote {
-      background: white;
-      border: 1px solid #E5E7EB;
-      border-radius: 10px;
-      padding: 14px 18px 14px 46px;
+      flex: 1;
+      min-width: 180px;
+      padding: 6px 18px 6px 46px;
       position: relative;
     }
+
+    /* Quotes inside a column stay vertical */
+    .findings-col .quotes { flex-direction: column; }
+    .findings-col .quote  { flex: none; min-width: unset; }
 
     .quote::before {
       content: '\201C';
@@ -481,9 +581,9 @@
 
     /* ── Insight Box ── */
     .insight {
-      background: #FFFBEB;
-      border: 1px solid #FDE68A;
-      border-radius: 10px;
+      background: #C7D2FE;
+      border: none;
+      border-radius: 12px;
       padding: 16px 20px;
       margin-top: 22px;
     }
@@ -493,20 +593,20 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #92400E;
+      color: #312E81;
       margin-bottom: 7px;
     }
 
     .insight p {
       font-size: 13px;
-      color: #78350F;
+      color: #1E1B4B;
       line-height: 1.7;
     }
 
     /* ── Tables ── */
     .table-wrap {
       border-radius: 10px;
-      border: 1px solid #E5E7EB;
+      border: none;
       overflow: hidden;
       margin-bottom: 10px;
     }
@@ -519,27 +619,27 @@
     }
 
     .data-table th {
-      background: #F9FAFB;
+      background: #ECEEF8;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #6B7280;
-      padding: 10px 16px;
+      padding: 12px 18px;
       text-align: left;
-      border-bottom: 1px solid #E5E7EB;
+      border-bottom: none;
     }
 
     .data-table td {
-      padding: 12px 16px;
+      padding: 14px 18px;
       color: #374151;
-      border-bottom: 1px solid #F3F4F6;
+      border-bottom: 1px solid #F0F1F6;
       vertical-align: top;
       line-height: 1.6;
     }
 
     .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:hover td { background: #FAFAFA; }
+    .data-table tr:hover td { background: #F9FAFB; }
     .data-table td:first-child { font-weight: 500; color: #111827; }
 
     .label-neg { color: #991B1B; font-weight: 500; }
@@ -558,6 +658,10 @@
       margin: 7px 0 0;
       padding-left: 16px;
     }
+
+    .finding-group-neg .finding-list li  { color: #991B1B; }
+    .finding-group-pos .finding-list li  { color: #166534; }
+    .finding-group-wish .finding-list li { color: #5B21B6; }
 
     .finding-list li {
       font-size: 13px;
@@ -599,11 +703,12 @@
   <div class="header-inner">
     <p class="eyebrow">UX Research &middot; Justly Usability Study</p>
     <h1>Research Questions &ndash; Answers</h1>
-    <p class="subtitle">Moderated usability test of the app "Justly" (AI-powered journaling / self-care). 5 individual sessions (T1–T5), think-aloud method, followed by a brief interview.</p>
+    <p class="subtitle">Moderated usability test of the app "Justly" (AI-powered journaling / self-care). 5 individual sessions, think-aloud method, followed by a brief interview.</p>
     <div class="meta-row">
-      <span class="meta-item"><strong>Participants</strong> T1, T2, T3, T4, T5</span>
+      <span class="meta-item"><strong>Participants</strong> Lukas, Renate, Sophie, Claudia, Mia</span>
       <span class="meta-item"><strong>Date</strong> 14.04.2026</span>
       <span class="meta-item"><strong>Author</strong> Martina Prais</span>
+      <span class="meta-item"><strong>Note</strong> All participant names are pseudonyms.</span>
     </div>
   </div>
 </header>
@@ -700,14 +805,14 @@
       </div>
 
       <div class="findings-two-col">
-        <div class="findings-col">
+        <div class="findings-col finding-group finding-group-neg">
           <div class="category-label">What Was Experienced as Insufficient</div>
 
           <div class="finding finding-neg">
             <span class="badge badge-neg">negative</span>
             <div class="finding-content">
               <div class="finding-title">Too much reflexive empathy, too little substance <span class="count-pill">5 / 5</span></div>
-              <div class="finding-text">The AI repeats, validates, and shows compassion – without offering concrete prompts for reflection or practical guidance. The tone feels forced and inauthentic: <em>"All soft and flattering – no real person talks like that"</em> (T2). Too many affirming responses without real content make the AI immediately recognisable as AI (T5). All 5 participants found this inauthentic or without value.</div>
+              <div class="finding-text">The AI repeats, validates, and shows compassion – without offering concrete prompts for reflection or practical guidance. The tone feels forced and inauthentic: <em>"All soft and flattering – no real person talks like that"</em> (Renate). Too many affirming responses without real content make the AI immediately recognisable as AI (Mia). All 5 participants found this inauthentic or without value.</div>
             </div>
           </div>
 
@@ -715,27 +820,27 @@
             <span class="badge badge-neg">negative</span>
             <div class="finding-content">
               <div class="finding-title">No change of perspective</div>
-              <div class="finding-text">The AI mirrors back what was said instead of introducing new viewpoints. T3: <em>"Fake conversation – nothing but empathy, no substance."</em></div>
+              <div class="finding-text">The AI mirrors back what was said instead of introducing new viewpoints. Sophie: <em>"Fake conversation – nothing but empathy, no substance."</em></div>
             </div>
           </div>
 
           <div class="finding finding-neg">
             <span class="badge badge-neg">negative</span>
             <div class="finding-content">
-              <div class="finding-title">No memory within the session</div>
-              <div class="finding-text">T1 experienced the AI forgetting things said moments earlier and constructing negative patterns that did not apply to him.</div>
+              <div class="finding-title">No memory — and a tendency to amplify negative patterns</div>
+              <div class="finding-text">Lukas experienced the AI forgetting things said moments earlier while simultaneously constructing negative patterns that did not reflect his actual experience — in his case, an unwarranted focus on problems in a relationship he viewed positively. Rather than helping, this risked worsening his perspective.</div>
             </div>
           </div>
         </div>
 
-        <div class="findings-col">
+        <div class="findings-col finding-group finding-group-wish">
           <div class="category-label">What Users Would Want Instead</div>
 
           <div class="finding finding-wish">
             <span class="badge badge-wish">wish</span>
             <div class="finding-content">
               <div class="finding-title">Matter-of-fact, neutral counterpart</div>
-              <div class="finding-text">T3 would see the AI as a "factual information source" – someone who does not simulate a relationship but instead provides orientation and context.</div>
+              <div class="finding-text">Sophie would see the AI as a "factual information source" – someone who does not simulate a relationship but instead provides orientation and context.</div>
             </div>
           </div>
 
@@ -751,7 +856,7 @@
             <span class="badge badge-wish">wish</span>
             <div class="finding-content">
               <div class="finding-title">Context-dependent empathy</div>
-              <div class="finding-text">T5: The empathetic tone is appropriate on a hard day – but overdone for everyday topics. A more differentiated style would be more convincing.</div>
+              <div class="finding-text">Mia: The empathetic tone is appropriate on a hard day – but overdone for everyday topics. A more differentiated style would be more convincing.</div>
             </div>
           </div>
 
@@ -759,7 +864,7 @@
             <span class="badge badge-wish">wish</span>
             <div class="finding-content">
               <div class="finding-title">Personas concept</div>
-              <div class="finding-text">The idea of being able to choose the AI's conversational style (different personas) was generally welcomed by T5 and T4.</div>
+              <div class="finding-text">Claudia and Mia welcomed the idea of choosing between different AI personas — but primarily because they were dissatisfied with the current style and hoped a different persona would interact with them differently.</div>
             </div>
           </div>
         </div>
@@ -768,21 +873,21 @@
       <div class="quotes">
         <div class="quote">
           <div class="quote-text">"Ideally, I'd see an AI like this more as a factual information source, not as a relationship object. Someone who simply has no experience with this – it carries no weight."</div>
-          <div class="quote-author">T3</div>
+          <div class="quote-author">Sophie, f, 26 yrs</div>
         </div>
         <div class="quote">
           <div class="quote-text">"It tries to say things very empathetically, even though it's not appropriate. You'd have to differentiate – when you're having a hard time, versus when it's actually just a normal day."</div>
-          <div class="quote-author">T5</div>
+          <div class="quote-author">Mia, f, 24 yrs</div>
         </div>
         <div class="quote">
           <div class="quote-text">"The AI is all soft and flattering. No real person talks like that."</div>
-          <div class="quote-author">T2</div>
+          <div class="quote-author">Renate, f, 62 yrs</div>
         </div>
       </div>
 
       <div class="insight">
         <div class="insight-label">Conclusion</div>
-        <p>The chatbot style should be adaptable depending on the severity of the situation and the user's personal needs. A differentiated conversational design that can distinguish between "difficult moment" and "ordinary day" – and that asks concrete questions rather than just validating – would significantly increase the perceived usefulness of the AI.</p>
+        <p>The chatbot needs a fundamental redesign of its conversational approach. It should ask concrete questions, introduce new perspectives, and avoid simply mirroring what users say. Critically, it must not construct or amplify negative patterns that don't reflect the user's actual experience — as Lukas's case shows, this can worsen rather than help. The style should adapt to context (a difficult moment calls for a different tone than an ordinary day), and ideally allow users to choose their preferred conversational mode. Empathy alone is not enough — substance, memory, and accuracy are what build genuine perceived value.</p>
       </div>
     </section>
 
@@ -804,73 +909,79 @@
         <p>The automatic emotion rating (pie chart) is rejected by <strong>5 out of 5</strong> participants. Challenges presented as bullet points are rated positively. The summary as a whole generates little motivation to revisit it.</p>
       </div>
 
-      <div class="category-label">What Was Experienced as Not Helpful</div>
+      <div class="findings-two-col">
+        <div class="findings-col finding-group finding-group-neg">
+          <div class="category-label">What Was Experienced as Not Helpful</div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">Automatic emotion rating (pie chart) <span class="count-pill">5 / 5</span></div>
-          <div class="finding-text">All participants rejected the automatically assigned overall mood. It felt arbitrary, opaque, and inaccurate.</div>
-          <ul class="finding-list">
-            <li>T1: generic value assignments that did not reflect his experience</li>
-            <li>T2: "Enthusiasm" rated too low; visualisation not intuitive</li>
-            <li>T3: overdramatic, cannot be adjusted – "not credible after a short conversation"</li>
-            <li>T4: would give herself 90% enthusiasm</li>
-            <li>T5: a 70% mood score after 10 messages feels arbitrary</li>
-          </ul>
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Automatic emotion rating (pie chart) <span class="count-pill">5 / 5</span></div>
+              <div class="finding-text">All participants rejected the automatically assigned overall mood. It felt arbitrary, opaque, and inaccurate.</div>
+              <ul class="finding-list">
+                <li>Lukas: generic value assignments that did not reflect his experience</li>
+                <li>Renate: "Enthusiasm" rated too low; visualisation not intuitive</li>
+                <li>Sophie: overdramatic, cannot be adjusted – "not credible after a short conversation"</li>
+                <li>Claudia: would give herself 90% enthusiasm</li>
+                <li>Mia: a 70% mood score after 10 messages feels arbitrary</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Summary in someone else's words</div>
+              <div class="finding-text">Sophie would not re-read the summary – <em>"because those aren't my words."</em></div>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">No motivation to revisit <span class="count-pill">4 / 5</span></div>
+              <div class="finding-text">4 out of 5 participants would not reopen the summary.</div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">Summary in someone else's words</div>
-          <div class="finding-text">T3 would not re-read the summary – <em>"because those aren't my words."</em></div>
-        </div>
-      </div>
+        <div class="findings-col finding-group finding-group-pos">
+          <div class="category-label">What Was Actually Experienced as Helpful</div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">No motivation to revisit <span class="count-pill">4 / 5</span></div>
-          <div class="finding-text">4 out of 5 participants would not reopen the summary.</div>
-        </div>
-      </div>
+          <div class="finding finding-pos">
+            <span class="badge badge-pos">positive</span>
+            <div class="finding-content">
+              <div class="finding-title">Challenges as bullet points</div>
+              <div class="finding-text">Sophie and Mia praised the clear at-a-glance format. Reframing problems as "challenges" was seen as potentially helpful.</div>
+            </div>
+          </div>
 
-      <div class="category-label">What Was Actually Experienced as Helpful</div>
+          <div class="finding finding-pos">
+            <span class="badge badge-pos">positive</span>
+            <div class="finding-content">
+              <div class="finding-title">Accurate content summary</div>
+              <div class="finding-text">Renate and Claudia felt the AI had correctly captured the essence of their situation – this was perceived positively.</div>
+            </div>
+          </div>
 
-      <div class="finding finding-pos">
-        <span class="badge badge-pos">positive</span>
-        <div class="finding-content">
-          <div class="finding-title">Challenges as bullet points</div>
-          <div class="finding-text">T3 and T5 praised the clear at-a-glance format. Reframing problems as "challenges" was seen as potentially helpful.</div>
-        </div>
-      </div>
-
-      <div class="finding finding-pos">
-        <span class="badge badge-pos">positive</span>
-        <div class="finding-content">
-          <div class="finding-title">Accurate content summary</div>
-          <div class="finding-text">T2 and T4 felt the AI had correctly captured the essence of their situation – this was perceived positively.</div>
-        </div>
-      </div>
-
-      <div class="finding finding-pos">
-        <span class="badge badge-pos">positive</span>
-        <div class="finding-content">
-          <div class="finding-title">Long-term calendar / mood trend</div>
-          <div class="finding-text">T5 appreciated the monthly calendar with colour-coded days in the profile – <em>"That's great."</em> Tracking mood across multiple sessions would be more credible than a single-session score.</div>
+          <div class="finding finding-pos">
+            <span class="badge badge-pos">positive</span>
+            <div class="finding-content">
+              <div class="finding-title">Long-term calendar / mood trend</div>
+              <div class="finding-text">Mia appreciated the monthly calendar with colour-coded days in the profile – <em>"That's great."</em> Tracking mood across multiple sessions would be more credible than a single-session score.</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="quotes">
         <div class="quote">
           <div class="quote-text">"I find that a bit overdramatic – especially because the app assigned it to me. And maybe I don't even feel that way."</div>
-          <div class="quote-author">T3</div>
+          <div class="quote-author">Sophie, f, 26 yrs</div>
         </div>
         <div class="quote">
           <div class="quote-text">"I have no idea where it gets that my overall mood is 70 – I find that strange after just 10 messages."</div>
-          <div class="quote-author">T5</div>
+          <div class="quote-author">Mia, f, 24 yrs</div>
         </div>
       </div>
 
@@ -912,100 +1023,108 @@
           <tbody>
             <tr>
               <td>Open Journal (without AI)</td>
-              <td>T1, T2</td>
-              <td>The freedom to choose between AI chat and free writing is explicitly valued; T2 would prefer the open journal over the AI chat</td>
+              <td>Lukas, Renate</td>
+              <td>The freedom to choose between AI chat and free writing is explicitly valued; Renate would prefer the open journal over the AI chat</td>
             </tr>
             <tr>
               <td>Routines (yoga, meditation, habits)</td>
-              <td>T2, T5</td>
-              <td>T2 was excited by the options; T5: "Routines are enormously important" – a clear use case</td>
+              <td>Renate, Mia</td>
+              <td>Renate was excited by the options; Mia: "Routines are enormously important" – a clear use case</td>
             </tr>
             <tr>
               <td>Themed Journals (variety)</td>
-              <td>T2, T5</td>
+              <td>Renate, Mia</td>
               <td>Many topics resonate: self-confidence, decision clarity, travel, worries – broad relevance</td>
             </tr>
             <tr>
               <td>Personas Concept (choose AI style)</td>
-              <td>T5, T4</td>
+              <td>Mia, Claudia</td>
               <td>The idea of choosing the AI's conversational style is understood and seen as meaningful</td>
             </tr>
             <tr>
               <td>Calendar with marked days (profile)</td>
-              <td>T5, T3</td>
-              <td>Monthly overview of emotional mood; visual trend over time is more credible than a single value; T3 would prefer a neutral marking option to avoid seeing too many sad-face days</td>
+              <td>Mia, Sophie</td>
+              <td>Monthly overview of emotional mood; visual trend over time is more credible than a single value; Sophie would prefer a neutral marking option to avoid seeing too many sad-face days</td>
             </tr>
             <tr>
               <td>Challenges as Bullet Points</td>
-              <td>T3, T5</td>
+              <td>Sophie, Mia</td>
               <td>Clear at-a-glance format; reframing as a "challenge" can be motivating</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <div class="finding-group finding-group-neg">
       <div class="category-label">Features That Feel Overwhelming or Unconvincing</div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">Explore section entirely subscription-only</div>
-          <div class="finding-text">T1 discovered that the entire Explore section is behind a paywall. This makes exploring the app frustrating before the core value can even be experienced.</div>
+      <div class="findings-two-col">
+        <div class="findings-col">
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Explore section entirely subscription-only</div>
+              <div class="finding-text">Lukas discovered that the entire Explore section is behind a paywall. This makes exploring the app frustrating before the core value can even be experienced.</div>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Hidden paywall in the journal list</div>
+              <div class="finding-text">Sophie: The journal list appears free – only the final tap reveals the payment screen. The feeling of being misled reduces willingness to engage with the app.</div>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Icons without labels in navigation <span class="count-pill">5 / 5</span></div>
+              <div class="finding-text">All participants struggled with unclear icons. Features were overlooked or misidentified because context was missing (e.g. star icon = Insights, but mistaken for AI chat by Mia; dream journal icon unclear to Claudia).</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="findings-col">
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">"Continue" button in the chat</div>
+              <div class="finding-text">Sophie: The button should say "Send" – the current label makes it unclear what it does.</div>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Calendar navigated to wrong day</div>
+              <div class="finding-text">Lukas spent five minutes confused because it was not clear that he had navigated to a future day where no session could be started (no visual indicator).</div>
+            </div>
+          </div>
+
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">No visible value after the first session <span class="count-pill">4 / 5</span></div>
+              <div class="finding-text">4 out of 5 participants saw no reason to reopen the app after completing their session. The home screen appeared empty after entries were made.</div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">Hidden paywall in the journal list</div>
-          <div class="finding-text">T3: The journal list appears free – only the final tap reveals the payment screen. The feeling of being misled reduces willingness to engage with the app.</div>
-        </div>
-      </div>
-
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">Icons without labels in navigation <span class="count-pill">5 / 5</span></div>
-          <div class="finding-text">All participants struggled with unclear icons. Features were overlooked or misidentified because context was missing (e.g. star icon = Insights, but mistaken for AI chat by T5; dream journal icon unclear to T4).</div>
-        </div>
-      </div>
-
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">"Continue" button in the chat</div>
-          <div class="finding-text">T3: The button should say "Send" – the current label makes it unclear what it does.</div>
-        </div>
-      </div>
-
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">Calendar navigated to wrong day</div>
-          <div class="finding-text">T1 spent five minutes confused because it was not clear that he had navigated to a future day where no session could be started (no visual indicator).</div>
-        </div>
-      </div>
-
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">No visible value after the first session <span class="count-pill">4 / 5</span></div>
-          <div class="finding-text">4 out of 5 participants saw no reason to reopen the app after completing their session. The home screen appeared empty after entries were made.</div>
-        </div>
       </div>
 
       <div class="quotes">
         <div class="quote">
           <div class="quote-text">"It's just one long list. The payment page only opens when you tap 'Use'. It wasn't clear at all beforehand that these were all premium items."</div>
-          <div class="quote-author">T3</div>
+          <div class="quote-author">Sophie, f, 26 yrs</div>
         </div>
         <div class="quote">
           <div class="quote-text">"I had to tap on it first to understand what it was. With the journals, it really wasn't clear when I tapped it – I just thought there was nothing there."</div>
-          <div class="quote-author">T2</div>
+          <div class="quote-author">Renate, f, 62 yrs</div>
         </div>
         <div class="quote">
           <div class="quote-text">"What do I actually get from having entered my goals for today? On the home screen I still see nothing."</div>
-          <div class="quote-author">T1</div>
+          <div class="quote-author">Lukas, m, 33 yrs</div>
         </div>
       </div>
 
@@ -1032,7 +1151,7 @@
 
       <div class="answer-card">
         <div class="card-eyebrow">Short Answer</div>
-        <p><strong>4 out of 5</strong> participants would neither use Justly regularly nor pay for it. Only T5 showed a basic willingness to pay and is the only participant who expressed interest in using the app regularly.</p>
+        <p><strong>4 out of 5</strong> participants would neither use Justly regularly nor pay for it. Only Mia showed a basic willingness to pay and is the only participant who expressed interest in using the app regularly.</p>
       </div>
 
       <div class="category-label">Quantitative Overview</div>
@@ -1049,31 +1168,31 @@
           </thead>
           <tbody>
             <tr>
-              <td>T1</td>
+              <td>Lukas</td>
               <td>1</td>
               <td>0</td>
               <td class="label-neg">No – "They'd have to pay me."</td>
             </tr>
             <tr>
-              <td>T2</td>
+              <td>Renate</td>
               <td>1</td>
               <td>1</td>
               <td class="label-neg">No – "I would never do that. Never."</td>
             </tr>
             <tr>
-              <td>T3</td>
+              <td>Sophie</td>
               <td>1</td>
               <td>0–1</td>
               <td class="label-neg">No</td>
             </tr>
             <tr>
-              <td>T4</td>
+              <td>Claudia</td>
               <td>1</td>
               <td>2</td>
               <td class="label-neg">No</td>
             </tr>
             <tr>
-              <td>T5</td>
+              <td>Mia</td>
               <td>4</td>
               <td>8</td>
               <td class="label-mix">Possibly – for a limited period; €8/week too high for long-term use</td>
@@ -1082,68 +1201,76 @@
         </table>
       </div>
 
-      <div class="category-label">Why Is Willingness to Pay Absent?</div>
+      <div class="findings-two-col">
+        <div class="findings-col finding-group finding-group-neg">
+          <div class="category-label">Why Is Willingness to Pay Absent?</div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">No perceived value</div>
-          <div class="finding-text">Those who have not experienced the app's benefit – because the free experience is too limited or the first session lacks real depth – find no price justifiable.</div>
-        </div>
-      </div>
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">No perceived value</div>
+              <div class="finding-text">Those who have not experienced the app's benefit – because the free experience is too limited or the first session lacks real depth – find no price justifiable.</div>
+            </div>
+          </div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">Paywall too early and too hidden</div>
-          <div class="finding-text">Users became frustrated before they could even discover the app's core value. This increases distrust toward the pricing model.</div>
-        </div>
-      </div>
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">Paywall too early and too hidden</div>
+              <div class="finding-text">Users became frustrated before they could even discover the app's core value. This increases distrust toward the pricing model.</div>
+            </div>
+          </div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">AI not accepted as a substitute for real support <span class="count-pill">5 / 5</span></div>
-          <div class="finding-text">All 5 participants do not see an AI app as a replacement for human connection or therapy – which reduces the perceived need to pay for it. T4 and T3 expressed active concerns that the app could make people lonelier.</div>
-        </div>
-      </div>
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">AI not accepted as a substitute for real support <span class="count-pill">5 / 5</span></div>
+              <div class="finding-text">All 5 participants do not see an AI app as a replacement for human connection or therapy – which reduces the perceived need to pay for it. Claudia and Sophie expressed active concerns that the app could make people lonelier.</div>
+            </div>
+          </div>
 
-      <div class="finding finding-neg">
-        <span class="badge badge-neg">negative</span>
-        <div class="finding-content">
-          <div class="finding-title">No motivation to return after the first session</div>
-          <div class="finding-text">If the app creates no incentive to come back after one session, there is no felt need for a subscription.</div>
+          <div class="finding finding-neg">
+            <span class="badge badge-neg">negative</span>
+            <div class="finding-content">
+              <div class="finding-title">No motivation to return after the first session</div>
+              <div class="finding-text">If the app creates no incentive to come back after one session, there is no felt need for a subscription.</div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="category-label">Why Did T5 Show Willingness to Pay?</div>
+        <div class="findings-col">
+          <div class="finding-group finding-group-pos">
+            <div class="category-label">Why Did Mia Show Willingness to Pay?</div>
 
-      <div class="finding finding-pos">
-        <span class="badge badge-pos">positive</span>
-        <div class="finding-content">
-          <div class="finding-title">Reframing as genuine perceived value</div>
-          <div class="finding-text">The post-chat summary reframed T5's everyday stress as a "challenge she was mastering" rather than a burden. She experienced this shift in perspective as genuine value – and it was enough to make her consider paying for the app, at least short-term.</div>
-        </div>
-      </div>
+            <div class="finding finding-pos">
+              <span class="badge badge-pos">positive</span>
+              <div class="finding-content">
+                <div class="finding-title">Reframing as genuine perceived value</div>
+                <div class="finding-text">The post-chat summary reframed Mia's everyday stress as a "challenge she was mastering" rather than a burden. She experienced this shift in perspective as genuine value – and it was enough to make her consider paying for the app, at least short-term.</div>
+              </div>
+            </div>
+          </div>
 
-      <div class="quotes">
-        <div class="quote">
-          <div class="quote-text">"I would never do that. Never."</div>
-          <div class="quote-author">T2</div>
-        </div>
-        <div class="quote">
-          <div class="quote-text">"They'd have to pay me."</div>
-          <div class="quote-author">T1</div>
-        </div>
-        <div class="quote">
-          <div class="quote-text">"It can be a great support tool for someone who's already in therapy, as an add-on. You just have to see it as a tool."</div>
-          <div class="quote-author">T5</div>
+          <div class="quotes" style="margin-top:14px">
+            <div class="quote">
+              <div class="quote-text">"I would never do that. Never."</div>
+              <div class="quote-author">Renate, f, 62 yrs</div>
+            </div>
+            <div class="quote">
+              <div class="quote-text">"They'd have to pay me."</div>
+              <div class="quote-author">Lukas, m, 33 yrs</div>
+            </div>
+            <div class="quote">
+              <div class="quote-text">"It can be a great support tool for someone who's already in therapy, as an add-on. You just have to see it as a tool."</div>
+              <div class="quote-author">Mia, f, 24 yrs</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="insight">
         <div class="insight-label">Conclusion</div>
-        <p>The app needs to create value before it asks for it. A more compelling freemium experience (longer trial period, deeper first session without a message limit) would likely improve conversion. T5 demonstrates that even a well-designed reframing in the summary – stress as a "challenge" rather than a problem – can create genuine perceived value. This is a scalable lever: the benefit does not have to depend on an emotionally exceptional moment; it can emerge in everyday life when the app shifts the user's perspective on their own situation.</p>
+        <p>The app needs to create value before it asks for it. A more compelling freemium experience (longer trial period, deeper first session without a message limit) would likely improve conversion. Mia demonstrates that even a well-designed reframing in the summary – stress as a "challenge" rather than a problem – can create genuine perceived value. This is a scalable lever: the benefit does not have to depend on an emotionally exceptional moment; it can emerge in everyday life when the app shifts the user's perspective on their own situation.</p>
       </div>
     </section>
 
